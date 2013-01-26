@@ -17,11 +17,13 @@ def add_product_view(request):
 		    p.save() # Guardar la  Informacion
 		    info = "Se Guardo Satisfactoriamente.!!"
 		else:
-		        info = "Informacion con datos incorrectos...."
+		    info = "Informacion con datos incorrectos...."
 	        form = addProductForm()
-	        ctx = {'form':form, 'informacion':info}
-	        return render_to_response('ventas/addProducto.html',ctx,context_instance=render_to_response(request))    	
+	
+		ctx = {'form':form, 'informacion':info}	        
+		return render_to_response('ventas/addProducto.html',ctx,context_instance=RequestContext(request))    	
+	
 	else:  
-	    		form = addProductForm()
-			ctx = {'form':form}
-			return  render_to_response('ventas/addProducto.html',ctx,context_instance=RequestContext(request))
+		form = addProductForm()
+		ctx = {'form':form}
+		return  render_to_response('ventas/addProducto.html',ctx,context_instance=RequestContext(request))
